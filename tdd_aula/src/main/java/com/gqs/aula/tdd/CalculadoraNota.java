@@ -21,4 +21,7 @@ public class CalculadoraNota {
                 nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
     }
+        public String situacao(double notaFinal, double frequencia) {
+        return "";
+    }
 }
