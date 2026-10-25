@@ -69,7 +69,8 @@ public class CalculadoraNotaTest {
         double resultado = calc.calcularNotaFinal(30, 30, 40);
         assertEquals(100, resultado);
     }
-        // Ciclo 5
+
+    // Ciclo 5 (esperados alterados no Ciclo 8)
     @Test
     void deveAprovarComNotaEFrequenciaSuficientes() {
         CalculadoraNota calc = new CalculadoraNota();
@@ -79,21 +80,22 @@ public class CalculadoraNotaTest {
     @Test
     void deveReprovarComNotaBaixa() {
         CalculadoraNota calc = new CalculadoraNota();
-        assertEquals("REPROVADO", calc.situacao(60, 90));
+        assertEquals("REPROVADO POR NOTA", calc.situacao(60, 90));
     }
 
     @Test
     void deveReprovarPorFrequenciaMesmoComNotaAlta() {
         CalculadoraNota calc = new CalculadoraNota();
-        assertEquals("REPROVADO", calc.situacao(95, 74));
+        assertEquals("REPROVADO POR FALTA", calc.situacao(95, 74));
     }
 
     @Test
     void deveAprovarComFrequenciaExatamente75() {
         CalculadoraNota calc = new CalculadoraNota();
         assertEquals("APROVADO", calc.situacao(70, 75));
-    } 
-        // Ciclo 6
+    }
+
+    // Ciclo 6
     @Test
     void devePermitirAIComNotaBaixaEA2MaisA3Suficiente() {
         CalculadoraNota calc = new CalculadoraNota();
@@ -124,7 +126,7 @@ public class CalculadoraNotaTest {
         assertFalse(calc.podeFazerAI(5, 5, 30, 80));
     }
 
-        // Ciclo 7
+    // Ciclo 7
     @Test
     void deveSubstituirA1QuandoA1ForAMenorEAAIMaior() {
         CalculadoraNota calc = new CalculadoraNota();
@@ -148,5 +150,12 @@ public class CalculadoraNotaTest {
         CalculadoraNota calc = new CalculadoraNota();
         assertThrows(IllegalArgumentException.class,
             () -> calc.aplicarAI(10, 20, 30, 35));
+    }
+
+    // Ciclo 8
+    @Test
+    void deveReprovarPorFaltaQuandoNotaEFrequenciaSaoBaixas() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals("REPROVADO POR FALTA", calc.situacao(50, 60));
     }
 }
