@@ -21,7 +21,10 @@ public class CalculadoraNota {
                 nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
     }
-        public String situacao(double notaFinal, double frequencia) {
-        return "";
+            public String situacao(double notaFinal, double frequencia) {
+        if (estaAprovadoPorNota(notaFinal) && frequencia >= 75) {
+            return "APROVADO";
+        }
+        return "REPROVADO";
     }
 }
