@@ -29,7 +29,11 @@ public class CalculadoraNota {
     }
         public static final double FREQUENCIA_MINIMA = 75;
 
-            public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
-        return false;
+                public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
+        double notaFinal = a1 + a2 + a3;
+        boolean naoAprovado = notaFinal < NOTA_MINIMA_APROVACAO;
+        boolean frequenciaSuficiente = frequencia >= FREQUENCIA_MINIMA;
+        boolean somaComA3Suficiente = (a1 + a3 >= 40) || (a2 + a3 >= 40);
+        return naoAprovado && frequenciaSuficiente && somaComA3Suficiente;
     }
 }
