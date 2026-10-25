@@ -123,4 +123,30 @@ public class CalculadoraNotaTest {
         CalculadoraNota calc = new CalculadoraNota();
         assertFalse(calc.podeFazerAI(5, 5, 30, 80));
     }
+
+        // Ciclo 7
+    @Test
+    void deveSubstituirA1QuandoA1ForAMenorEAAIMaior() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(75, calc.aplicarAI(10, 20, 30, 25));
+    }
+
+    @Test
+    void deveSubstituirA2QuandoA2ForAMenorEAAIMaior() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(75, calc.aplicarAI(20, 10, 30, 25));
+    }
+
+    @Test
+    void naoDeveSubstituirQuandoAAIForBaixa() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertEquals(60, calc.aplicarAI(10, 20, 30, 5));
+    }
+
+    @Test
+    void deveRejeitarAIInvalida() {
+        CalculadoraNota calc = new CalculadoraNota();
+        assertThrows(IllegalArgumentException.class,
+            () -> calc.aplicarAI(10, 20, 30, 35));
+    }
 }

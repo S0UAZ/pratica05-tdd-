@@ -38,4 +38,8 @@ public class CalculadoraNota {
                 nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
     }
+
+        public double aplicarAI(double a1, double a2, double a3, double notaAI) {
+        return 0;
+    }
 }
