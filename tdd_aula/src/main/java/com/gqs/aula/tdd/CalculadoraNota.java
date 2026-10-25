@@ -28,4 +28,8 @@ public class CalculadoraNota {
         return "REPROVADO";
     }
         public static final double FREQUENCIA_MINIMA = 75;
+
+            public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
+        return false;
+    }
 }
