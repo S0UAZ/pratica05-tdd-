@@ -22,9 +22,10 @@ public class CalculadoraNota {
         }
     }
             public String situacao(double notaFinal, double frequencia) {
-        if (estaAprovadoPorNota(notaFinal) && frequencia >= 75) {
+        if (estaAprovadoPorNota(notaFinal) && frequencia >= FREQUENCIA_MINIMA) {
             return "APROVADO";
         }
         return "REPROVADO";
     }
+        public static final double FREQUENCIA_MINIMA = 75;
 }
